@@ -1,6 +1,6 @@
 package xyz.marontedev.springboot.datajpaapp.models.dao;
 
-import org.springframework.stereotype.Repository;
+/*import org.springframework.stereotype.Repository;
 import xyz.marontedev.springboot.datajpaapp.models.entity.Client;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -38,4 +38,4 @@ public class ClientDaoImpl implements IClientDao{
         em.remove(findOne(id));
     }
 
-}
+}*/

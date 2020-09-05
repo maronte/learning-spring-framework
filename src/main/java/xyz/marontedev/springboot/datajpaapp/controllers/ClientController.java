@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
-@SessionAttributes("cliente")
+@SessionAttributes("client")
 @RequestMapping("/client")
 public class ClientController {
     @Autowired

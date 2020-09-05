@@ -3,23 +3,19 @@ package xyz.marontedev.springboot.datajpaapp.models.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import xyz.marontedev.springboot.datajpaapp.models.dao.ClientDaoImpl;
+import xyz.marontedev.springboot.datajpaapp.models.dao.IClientDao;
 import xyz.marontedev.springboot.datajpaapp.models.entity.Client;
-import xyz.marontedev.springboot.datajpaapp.models.service.IServiceClient;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
 public class ClientServiceImp implements IServiceClient {
     @Autowired
-    private ClientDaoImpl clientDao;
+    private IClientDao clientDao;
 
     @Override
     @Transactional(readOnly = true)
     public List<Client> findAll() {
-        return clientDao.findAll();
+        return (List<Client>) clientDao.findAll();
     }
 
     @Override
@@ -31,12 +27,12 @@ public class ClientServiceImp implements IServiceClient {
     @Override
     @Transactional(readOnly = true)
     public Client findOne(Long id) {
-        return clientDao.findOne(id);
+        return clientDao.findById(id).orElse(null);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        clientDao.delete(id);
+        clientDao.deleteById(id);
     }
 }
